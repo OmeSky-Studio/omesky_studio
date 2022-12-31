@@ -7,9 +7,10 @@ public class Main {
 
     static Display window;
     static boolean running = false;
-    MainMenu mainMenu = new MainMenu();
+    MainMenu mainMenu;
     public void init(){
 
+        mainMenu = new MainMenu();
         mainMenu.init();
         running = true;
         loop();
