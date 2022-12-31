@@ -16,7 +16,10 @@ public class Panel {
         return panel;
     }
 
-    public void addComponent(JButton button){
-        panel.add(button);
+    public void addComponent(JButton component){
+        panel.add(component);
+    }
+    public void addComponent(JLabel component){
+        panel.add(component);
     }
 }
