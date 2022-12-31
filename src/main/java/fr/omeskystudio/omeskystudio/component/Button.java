@@ -1,20 +1,26 @@
 package fr.omeskystudio.omeskystudio.component;
 
+import fr.omeskystudio.omeskystudio.component.ActionListener.MainMenuListener;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Button {
-
-    JButton button;
+public class Button extends JButton{
 
     public void create(String name, int x, int y, int width, int height, Color color, int size){
-        button = new JButton(name);
-        button.setBackground(color);
-        button.setBounds(x, y, width, height);
-        button.setFont(new Font("Verdana",Font.BOLD,size));
+        this.setName(name);
+        this.setText(name);
+        this.setBackground(color);
+        this.setBounds(x, y, width, height);
+        this.setFont(new Font("Verdana",Font.BOLD,size));
+
+        this.addActionListener(new MainMenuListener(this.getButton()));
+
     }
 
     public JButton getButton(){
-        return button;
+        return this;
     }
 }
