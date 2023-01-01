@@ -1,25 +1,32 @@
 package fr.omeskystudio.omeskystudio;
 
-import fr.omeskystudio.omeskystudio.component.Display;
+import fr.omeskystudio.omeskystudio.component.DisplayManager;
+import fr.omeskystudio.omeskystudio.component.FolderManager;
 import fr.omeskystudio.omeskystudio.menu.MainMenu;
 
 public class Main {
 
-    static Display window;
+    static DisplayManager window;
     static boolean running = false;
-    MainMenu mainMenu = new MainMenu();;
+    MainMenu mainMenu = new MainMenu();
+
     public void init(){
         mainMenu.init();
         running = true;
         loop();
     }
-
+    int tick = 0;
     public void update(){
-
+        if(!FolderManager.isRootCreated()){
+            FolderManager.createDefaultFolder();
+        }
+        mainMenu.update();
+        DisplayManager.update();
+        //System.out.println(Display.getDimension().getWidth() +"x"+Display.getDimension().getHeight());
     }
 
     public void loop(){
-        while (!running){
+        while (running){
             update();
         }
     }
@@ -29,6 +36,8 @@ public class Main {
         /*CREATE DISPLAY*/
         window.create();
         Main main = new Main();
+
+
         main.init();
     }
 }
