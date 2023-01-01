@@ -4,8 +4,6 @@ import fr.omeskystudio.omeskystudio.component.ActionListener.MainMenuListener;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Button extends JButton{
 
@@ -15,7 +13,6 @@ public class Button extends JButton{
         this.setBackground(color);
         this.setBounds(x, y, width, height);
         this.setFont(new Font("Verdana",Font.BOLD,size));
-
         this.addActionListener(new MainMenuListener(this.getButton()));
 
     }
